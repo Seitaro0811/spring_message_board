@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org"
+    th:replace="~{layout/template :: layout(~{::title},~{::body/content()})}">
+<head>
+	<meta charset="utf-8">
+	<title>メッセージボード</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>タイトル</th>
+			<td th:text="${message.title}"></td>
+		</tr>
+		<tr>
+			<th>名前</th>
+			<td th:text="${message.name}"></td>
+		</tr>
+		<tr>
+			<th>本文</th>
+			<td th:text="${message.content}"></td>
+		</tr>
+		<tr>
+			<th>投稿日時</th>
+			<td th:text="${message.created_at}"></td>
+		</tr>
+		<tr>
+			<th>更新日時</th>
+			<td th:text="${message.updated_at}"></td>
+		</tr>
+	</table>
+</body>
+</html>
