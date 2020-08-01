@@ -6,5 +6,26 @@
 	<title>メッセージボード</title>
 </head>
 <body>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>タイトル</th>
+			<th>名前</th>
+		</tr>
+		<tr th:each="message : ${messages}">
+			<td th:text="${message.id}"></td>
+			<td><a th:href="@{'/detail/'} + ${message.id}" th:text="${message.title}"></a></td>
+			<td th:text="${message.name}"></td>
+		</tr>
+	</table>
+	<form th:action="@{'/'}" method="post">
+		タイトル<br/>
+		<input type="text" name="title"/><br/>
+		名前<br/>
+		<input type="text" name="name"/><br/>
+		本文<br/>
+		<textarea rows="10" cols="50" name="content"></textarea><br/>
+		<input type="submit" value="投稿"/>
+	</form>
 </body>
 </html>
