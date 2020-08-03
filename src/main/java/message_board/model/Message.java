@@ -26,10 +26,10 @@ public class Message {
 	@Column(name = "content", length = 255, nullable = false)
 	private String content;
 	
-	@Column(name = "created_at", nullable = false)
+	@Column(name = "created_at")
 	private Timestamp created_at;
 	
-	@Column(name = "updated_at", nullable = false)
+	@Column(name = "updated_at")
 	private Timestamp updated_at;
 
 	public Integer getId() {
