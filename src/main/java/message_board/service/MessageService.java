@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import message_board.model.EditMessageForm;
 import message_board.model.Message;
 import message_board.model.MessageForm;
 import message_board.repository.MessageRepository;
@@ -33,5 +34,15 @@ public class MessageService {
 	
 	public Message findById(Integer id) {
 		return repository.getOne(id);
+	}
+	
+	public void editMessage(EditMessageForm form) {
+		Message message = repository.getOne(form.getId());
+		message.setTitle(form.getTitle());
+		message.setName(form.getName());
+		message.setContent(form.getContent());
+		Timestamp current_time = new Timestamp(System.currentTimeMillis());
+		message.setUpdated_at(current_time);
+		repository.saveAndFlush(message);
 	}
 }
