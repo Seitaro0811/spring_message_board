@@ -27,5 +27,7 @@
 			<td th:text="${message.updated_at}"></td>
 		</tr>
 	</table>
+	<p><a th:href="@{/edit/} + ${message.id}">編集</a></p>
+	
 </body>
 </html>
