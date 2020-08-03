@@ -45,4 +45,10 @@ public class MessageService {
 		message.setUpdated_at(current_time);
 		repository.saveAndFlush(message);
 	}
+	
+	public void deleteMessage(Integer id) {
+		Message message = repository.getOne(id);
+		repository.delete(message);
+		repository.flush();
+	}
 }
