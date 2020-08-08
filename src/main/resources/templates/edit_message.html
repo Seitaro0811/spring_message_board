@@ -6,6 +6,11 @@
 	<title>メッセージボード</title>
 </head>
 <body>
+	<div id="error" th:if="${error != null}">
+		<div th:each="e : ${error}">
+			<p th:text="${e}"></p>
+		</div>
+	</div>
 	<form th:action="@{'/edit'}" method="post">
 		タイトル<br/>
 		<input type="text" name="title" th:value="${message.title}"/><br/>
